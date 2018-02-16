@@ -1,5 +1,5 @@
 # PCR-Free_Quantification_Barcode_Analysis
-Code for analyzing PCR-free quantification barcode sequencing data. This program takes in a FASTQ file and barcode reference FASTA file and outputs a plot and a .txt file of barcode counts.
+Code for analyzing PCR-free quantification barcode sequencing data. This program takes in a FASTQ file and barcode reference FASTA file and outputs a plot and a .txt file with barcode counts.
 
 ## Prerequisites
 Python 2.7
