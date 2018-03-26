@@ -1,4 +1,4 @@
-# PCR-Free_Quantification_Barcode_Analysis
+# REcount Barcode Analysis
 Code for analyzing PCR-free quantification barcode sequencing data. This program takes in a FASTQ file and barcode reference FASTA file and outputs a plot and a .txt file with barcode counts.
 
 ## Prerequisites
@@ -7,7 +7,7 @@ Python 2.7
 BioPython
 
 ## Usage
-PCR_free_barcode_analysis.py [-h] [-i] [-r] [-o] [-m]
+REcount_barcode_analysis.py [-h] [-i] [-r] [-o] [-m]
 
 optional arguments:
 
@@ -22,4 +22,4 @@ optional arguments:
       -m , --mismatches_allowed  Number of mismatches to barcode reference sequences allowed (default 2)
   
 ## Usage example
-PCR_free_barcode_analysis.py -i <PathToFile/InputFileName> -r <PathToFile/ReferenceFileName>
+REcount_barcode_analysis.py -i <PathToFile/InputFileName> -r <PathToFile/ReferenceFileName>
