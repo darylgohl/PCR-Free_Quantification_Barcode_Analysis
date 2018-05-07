@@ -29,6 +29,11 @@ def get_args(x):
                    default = None,
                    metavar = '',
                    help="Input reference FATSA file [required].")
+    x.add_argument("-l", "--length",
+                   type = str,
+                   default = '20',
+                   metavar = '',
+                   help="Barcode length (default: 20).")
     x.add_argument("-o", "--output_dir",
                    type = str,
                    default = '',
@@ -45,7 +50,7 @@ def get_args(x):
 # Parses command line arguments
 argparser = argparse.ArgumentParser(description = "Barcode counting script (v" + __version__ +")\n" + \
                                               "by Daryl Gohl\n" + \
-                                              "This program takes in a FASTQ file and barcode reference FASTA file and outputs plots and a .txt file of barcode counts.",
+                                              "This program takes in a FASTQ file and barcode reference FASTA file and outputs a plot and a .txt file of barcode counts.",
                                 add_help = True, 
                                 epilog ='')
 args = get_args(argparser)
@@ -57,6 +62,7 @@ file = os.path.split(filename)[1]
 Ref_filename = args['reference_file']
 mismatches = args['mismatches_allowed']
 out_folder = args['output_dir']
+bc_length = int(args['length'])
 
 if out_folder == '':
   out_dir = os.path.dirname(filename)
@@ -89,10 +95,10 @@ for record in SeqIO.parse(Ref_filename, "fasta"):
     bc_seq = str(record.seq) #Collect standard barcode sequences from reference file
     for i in SeqIO.parse(filename, "fastq"):
         query = r'(?:' + bc_seq +'){s<=' + mismatches + '}' #fuzzy matching - allow up to <arg> mismatches
-        test = regex.findall(query, str(i.seq[:20]))
+        test = regex.findall(query, str(i.seq[:bc_length]))
         if test != []: 
             count += 1
-            bc_sub_list.append(str(i.seq[:20]))   
+            bc_sub_list.append(str(i.seq[:bc_length]))   
     count_list.append(count)
     bc_all_list.append(bc_sub_list)
     bc_ID_list.append(bc_ID)
