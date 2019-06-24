@@ -28,7 +28,7 @@ def get_args(x):
                    type = str,
                    default = None,
                    metavar = '',
-                   help="Input reference FATSA file [required].")
+                   help="Input reference FASTA file [required].")
     x.add_argument("-l", "--length",
                    type = str,
                    default = '20',
