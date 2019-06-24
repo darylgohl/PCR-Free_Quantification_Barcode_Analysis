@@ -15,7 +15,7 @@ optional arguments:
 
       -i , --input_file         Input path for raw FASTQ file [required].
 
-      -r , --reference_file     Input reference FATSA file [required].
+      -r , --reference_file     Input reference FASTA file [required].
 
       -o , --output_dir         Output directory for plot and barcode count file (default: same folder as input file)
 
